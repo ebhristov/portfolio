@@ -1,11 +1,18 @@
 <?php
 
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', LandingController::class);
+Route::get('/', LandingController::class)->name('welcome');
+
+Route::group(['prefix' => 'library', 'as' => 'library.'], function () {
+    Route::controller(LibraryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
