@@ -1,5 +1,6 @@
 <script setup>
 import {ref, onMounted} from 'vue';
+import {Head} from '@inertiajs/vue3';
 
 const hourHand = ref(null);
 const minuteHand = ref(null);
@@ -39,6 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
+    <Head title="Clock"/>
     <div class="flex flex-col h-full w-full select-none overflow-hidden md:flex-row">
         <aside class="w-full p-5 flex flex-col gap-5 place-items-center align-middle md:w-96">
             <h1 class="text-4xl">Vue.js Clock</h1>
