@@ -39,28 +39,37 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex h-full justify-center items-center select-none overflow-hidden">
-        <div class="clock">
-            <div
-                v-for="n in 12"
-                :key="'hour-' + n"
-                class="number"
-                :style="{ transform: `rotate(${30 * n}deg)` }"
-            >
-                <span :style="{ transform: `rotate(${-30 * n}deg)` }">{{ n }}</span>
+    <div class="flex flex-col h-full w-full select-none overflow-hidden md:flex-row">
+        <aside class="w-full p-5 flex flex-col gap-5 place-items-center align-middle md:w-96">
+            <h1 class="text-4xl">Vue.js Clock</h1>
+            <p>This Vue.js clock utilizes smooth animation achieved through the <code>requestAnimationFrame()</code>
+                function, ensuring consistent performance across various display refresh rates. The clock's design
+                features distinct hour, minute, and second hands, set against a minimalist backdrop. Watch time come to
+                life as each hand glides seamlessly around the clock face.</p>
+        </aside>
+        <div class="w-full flex place-content-center items-center p-5">
+            <div class="clock">
+                <div
+                    v-for="n in 12"
+                    :key="'hour-' + n"
+                    class="number"
+                    :style="{ transform: `rotate(${30 * n}deg)` }"
+                >
+                    <span :style="{ transform: `rotate(${-30 * n}deg)` }">{{ n }}</span>
+                </div>
+                <div
+                    v-for="m in 60"
+                    :key="'minute-' + m"
+                    class="minute-number"
+                    :style="{ transform: `rotate(${6 * m}deg)` }"
+                >
+                    <span>{{ m }}</span>
+                </div>
+                <div class="hour-hand" ref="hourHand"></div>
+                <div class="minute-hand" ref="minuteHand"></div>
+                <div class="second-hand" ref="secondHand"></div>
+                <div class="center-dot"></div>
             </div>
-            <div
-                v-for="m in 60"
-                :key="'minute-' + m"
-                class="minute-number"
-                :style="{ transform: `rotate(${6 * m}deg)` }"
-            >
-                <span>{{ m }}</span>
-            </div>
-            <div class="hour-hand" ref="hourHand"></div>
-            <div class="minute-hand" ref="minuteHand"></div>
-            <div class="second-hand" ref="secondHand"></div>
-            <div class="center-dot"></div>
         </div>
     </div>
 </template>
@@ -68,7 +77,8 @@ onMounted(() => {
 <style scoped>
 .clock {
     position: relative;
-    width: 50%;
+    width: 100%;
+    max-width: 80vh;
     aspect-ratio: 1;
     border: 0.5vw solid rgb(0, 255, 255);
     border-radius: 50%;
@@ -97,7 +107,7 @@ onMounted(() => {
     position: absolute;
     text-align: center;
     inset: 1.5%;
-    color: rgba(255, 0, 0, 0.8);
+    color: rgb(255, 0, 0);
     transform-origin: center;
     font-family: Bahnschrift, sans-serif;
     font-size: 1vw;
@@ -113,7 +123,7 @@ onMounted(() => {
     height: 2vw;
     background-color: black;
     background-clip: padding-box;
-    border: 0.5vw solid rgba(255, 0, 0, 0.8);
+    border: 0.6vw solid rgb(255, 0, 0);
     border-radius: 50%;
 }
 
@@ -143,7 +153,7 @@ onMounted(() => {
 .second-hand {
     width: 0.8%;
     height: 45%;
-    background-color: rgba(255, 0, 0, 0.8);
+    background-color: rgb(255, 0, 0);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 </style>
