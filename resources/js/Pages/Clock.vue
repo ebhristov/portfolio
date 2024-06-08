@@ -39,7 +39,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="absolute w-screen h-screen flex justify-center items-center select-none">
+    <div class="flex h-full justify-center items-center select-none overflow-hidden">
         <div class="clock">
             <div
                 v-for="n in 12"
@@ -68,15 +68,14 @@ onMounted(() => {
 <style scoped>
 .clock {
     position: relative;
-    width: 50vw;
-    height: 50vw;
-    border: 1vw solid rgb(0, 255, 255);
+    width: 50%;
+    aspect-ratio: 1;
+    border: 0.5vw solid rgb(0, 255, 255);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 }
 
 .number {
@@ -87,7 +86,7 @@ onMounted(() => {
     transform-origin: center;
     font-family: Bahnschrift, sans-serif;
     font-weight: bold;
-    font-size: 6vw;
+    font-size: 5vw;
 }
 
 .number > span {
@@ -116,7 +115,6 @@ onMounted(() => {
     background-clip: padding-box;
     border: 0.5vw solid rgba(255, 0, 0, 0.8);
     border-radius: 50%;
-    z-index: 10;
 }
 
 .hour-hand, .minute-hand, .second-hand {
@@ -125,7 +123,6 @@ onMounted(() => {
     bottom: 50%;
     transform-origin: bottom;
     border-radius: 5px;
-    z-index: 5;
     transition: transform 0.5s cubic-bezier(0.4, 2.3, 0.3, 1);
 }
 

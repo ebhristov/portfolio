@@ -2,6 +2,7 @@
 import NavLink from '@/Components/NavLink.vue';
 import IconHome from '@/Images/IconHome.vue';
 import IconBook from '@/Images/IconBook.vue';
+import IconClock from '@/Images/IconClock.vue';
 </script>
 
 <template>
@@ -13,6 +14,9 @@ import IconBook from '@/Images/IconBook.vue';
                 </NavLink>
 
                 <nav class="flex gap-5">
+                    <NavLink :href="route('clock')" :active="$page.component === 'Clock'">
+                        <IconClock/>
+                    </NavLink>
                     <NavLink :href="route('library.index')" :active="$page.component === 'Library'">
                         <IconBook/>
                     </NavLink>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', LandingController::class)->name('welcome');
+Route::get('/clock', fn () => Inertia::render('Clock'))->name('clock');
 
 Route::group(['prefix' => 'library', 'as' => 'library.'], function () {
     Route::controller(LibraryController::class)->group(function () {
