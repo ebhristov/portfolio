@@ -80,7 +80,7 @@ onMounted(() => {
     width: 100%;
     max-width: 80vh;
     aspect-ratio: 1;
-    border: 0.5vw solid rgb(0, 255, 255);
+    border: 0.5vw solid rgb(103, 232, 249);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -92,7 +92,7 @@ onMounted(() => {
     position: absolute;
     text-align: center;
     inset: 3%;
-    color: rgba(0, 255, 255, 0.8);
+    color: rgb(103, 232, 249);
     transform-origin: center;
     font-family: Bahnschrift, sans-serif;
     font-weight: bold;
@@ -139,14 +139,14 @@ onMounted(() => {
 .hour-hand {
     width: 1.5%;
     height: 30%;
-    background-color: rgba(0, 255, 255, 0.8);
+    background-color: rgba(103, 232, 249, 0.8);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .minute-hand {
     width: 1.2%;
     height: 40%;
-    background-color: rgba(0, 255, 255, 0.8);
+    background-color: rgba(103, 232, 249, 0.8);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 

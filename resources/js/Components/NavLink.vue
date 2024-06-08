@@ -8,7 +8,7 @@ defineProps({active: Boolean});
 <template>
     <Link type="button">
         <svg class="h-8 w-8 hover:stroke-red-500 hover:transition-colors duration-300"
-             :class="{'stroke-amber-500': active, 'stroke-white': !active}"
+             :class="{'stroke-cyan-300': active, 'stroke-white': !active}"
              viewBox="0 0 24 24"
              fill="none"
              xmlns="http://www.w3.org/2000/svg">
