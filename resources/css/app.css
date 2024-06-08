@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.content {
+    scroll-snap-type: block mandatory;
+    @apply overflow-auto p-5 h-full;
+}
+
+.content section {
+    display: block;
+    scroll-snap-align: center;
+    @apply h-full mb-5
+}
+
+::-webkit-scrollbar {
+    width: 0.25em;
+    height: 0.25em;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vw;
+    margin-block: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 0, 0, 0.6);
+}

@@ -1,17 +1,18 @@
 <?php
 
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::get('/', LandingController::class)->name('welcome');
+Route::get('/clock', fn () => Inertia::render('Clock'))->name('clock');
+
+Route::group(['prefix' => 'library', 'as' => 'library.'], function () {
+    Route::controller(LibraryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 });
 
 Route::get('/dashboard', function () {
